@@ -16,6 +16,15 @@ const cardsData = getCardsData();
 function createCards(){
     cardsData.forEach((data, index) => createCard(data, index));
 };
+const colors = [
+    'red',
+    'blue',
+    'green',
+    'purple',
+    'orange',
+    'pink',
+    'yellow'
+];
 function createCard(data, index){
     const card = document.createElement('div');
     card.classList.add('card');
@@ -24,7 +33,9 @@ function createCard(data, index){
     }
     card.innerHTML = `
     <div class="inner-card">
-        <div class="inner-card-front">
+        <div class="inner-card-front"
+            style="background-color: ${colors[Math.floor(Math.random() * colors.length)]};"
+        >
             <p>
                 ${data.question}
             </p>
@@ -58,7 +69,7 @@ nextBtn.addEventListener('click', () => {
             warningEl.style.opacity = '0';
         }, 2000);
     }else{
-        cardsEl[currentActiveCard].className = 'card left';
+        cardsEl[currentActiveCard].className = 'card right';
         currentActiveCard = currentActiveCard + 1;
         if(currentActiveCard > cardsEl.length - 1){
             currentActiveCard = cardsEl.length - 1;
@@ -75,7 +86,7 @@ prevBtn.addEventListener('click', () => {
             warningEl.style.opacity = '0';
         }, 2000);
     }else{
-        cardsEl[currentActiveCard].className = 'card right';
+        cardsEl[currentActiveCard].className = 'card left';
         currentActiveCard = currentActiveCard - 1;
         if(currentActiveCard < 0){
             currentActiveCard = 0;

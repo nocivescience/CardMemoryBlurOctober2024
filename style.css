@@ -89,11 +89,15 @@ h1 {
 }
 
 .card.left {
-  transform: translateX(-50%) rotateY(10deg);
+  transform: translateX(-100%) rotateY(10deg);
+  opacity: 0.10;
+  transition: transform 0.3s ease;
 }
 
 .card.right {
-  transform: translateX(150%) rotateY(-10deg);
+  transform: translateX(100%) rotateY(-10deg);
+  opacity: 0.10;
+  transition: transform 0.3s ease;
 }
 
 .card.active {
